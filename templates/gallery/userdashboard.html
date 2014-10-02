@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация пользователя{% endblock %}
+
+{% block content %}
+{{notuser}}
+<form action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Загрузить файл">
+</form>
+{% for image in im%}    
+        <a href="/userdashboard/image/{{image.id}}/"><img src="{{MEDIA_URL}}{{image.image}}"></a>
+{% endfor%}
+{% if im %}
+    <form action="." method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="sendtoemail" value="1">
+        <input type="submit" value="Отпраить на Email">
+    </form>
+{% endif %}
+{{qwe1}}
+{{qwe}}
+{{im1}}
+{{req}}
+{{userq}}
+{{mail}}
+{{from}}
+{{r}}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% if notuser%}
+    {{notuser}}
+{%else%}
+    {% for image in im%}    
+        <a href="/userdashboard/image/{{image.id}}/"><img src="{{MEDIA_URL}}{{image.image}}"></a>
+{% endfor%}
+{%endif%}
+
+{% endblock %}
