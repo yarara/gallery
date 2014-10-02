@@ -16,19 +16,21 @@
     {%endif%}
 
 
-    <div style="width: 40%" name="notelist" >
+    <br>Заметки:
+    <div style="width: 40%;" name="notelist" >
         {% for note in image_note%}
             {% if note.user == user %}
                 <br>{{note.text_note}}
             {% endif %}
         {% endfor%}
-
+    </div>
+    <br>
         <form action="." method="POST">
             {% csrf_token %}
-            <textarea name="notearea"></textarea>
-            <input type="submit" value="Добавить заметку">
+            <textarea style="width: 40%" name="notearea"></textarea>
+            <br><input type="submit" value="Добавить заметку">
         </form>
-    </div>
+    
 {%endif%}
 
 {% endblock %}
